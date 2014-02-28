@@ -1,0 +1,17 @@
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\bin\Debug\BLL.dll
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\bin\Debug\BLL.pdb
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MainForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MedicalTestTypeForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SearchPatientForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddMedicalTestTypeForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditPatientForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditVisitForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicalTestForm.resources

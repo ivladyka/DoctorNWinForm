@@ -1,0 +1,5 @@
+E:\Project\DoctorNWinForm\BLL\bin\Debug\BLL.dll
+E:\Project\DoctorNWinForm\BLL\bin\Debug\BLL.pdb
+E:\Project\DoctorNWinForm\BLL\obj\Debug\BLL.dll
+E:\Project\DoctorNWinForm\BLL\obj\Debug\BLL.pdb
+E:\Project\DoctorNWinForm\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache

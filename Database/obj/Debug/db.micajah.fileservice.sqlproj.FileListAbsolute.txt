@@ -1,0 +1,9 @@
+E:\Micajah\FileService\db.micajah.fileservice\bin\Debug\db.micajah.fileservice.dacpac
+E:\Micajah\FileService\db.micajah.fileservice\bin\Debug\db.micajah.fileservice.dll
+E:\Micajah\FileService\db.micajah.fileservice\bin\Debug\db.micajah.fileservice.pdb
+E:\Micajah\FileService\db.micajah.fileservice\obj\Debug\Model.xml
+E:\Micajah\FileService\db.micajah.fileservice\obj\Debug\refactor.xml
+E:\Micajah\FileService\db.micajah.fileservice\obj\Debug\postdeploy.sql
+E:\Micajah\FileService\db.micajah.fileservice\obj\Debug\predeploy.sql
+E:\Micajah\FileService\db.micajah.fileservice\obj\Debug\db.micajah.fileservice.dll
+E:\Micajah\FileService\db.micajah.fileservice\obj\Debug\db.micajah.fileservice.pdb

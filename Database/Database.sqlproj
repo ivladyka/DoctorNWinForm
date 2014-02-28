@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>db.micajah.fileservice</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{55bead17-9970-474a-93b6-5be8dde26a23}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>db.vikkisoft.fileservice</RootNamespace>
+    <AssemblyName>db.vikkisoft.doctorN</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>True</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables\" />
+    <Folder Include="Views\" />
+    <Folder Include="Functions\" />
+    <Folder Include="Stored Procedures\" />
+    <Folder Include="Sql Scripts" />
+    <Folder Include="Sql Scripts\Change Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlSchemaCompareToLocal.scmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Visit.sql" />
+    <Build Include="Tables\Patient.sql" />
+    <Build Include="Tables\MedicalTestType.sql" />
+    <Build Include="Tables\MedicalTest.sql" />
+    <Build Include="Stored Procedures\sp_UpdateVisit.sql" />
+    <Build Include="Stored Procedures\sp_UpdatePatient.sql" />
+    <Build Include="Stored Procedures\sp_UpdateMedicalTestType.sql" />
+    <Build Include="Stored Procedures\sp_UpdateMedicalTest.sql" />
+    <Build Include="Stored Procedures\sp_SelectVisitList.sql" />
+    <Build Include="Stored Procedures\sp_SelectVisit.sql" />
+    <Build Include="Stored Procedures\sp_SelectPatientList.sql" />
+    <Build Include="Stored Procedures\sp_SelectPatient.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicalTestTypeList.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicalTestType.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicalTestList.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicalTest.sql" />
+    <Build Include="Stored Procedures\sp_InsertVisit.sql" />
+    <Build Include="Stored Procedures\sp_InsertPatient.sql" />
+    <Build Include="Stored Procedures\sp_InsertMedicalTestType.sql" />
+    <Build Include="Stored Procedures\sp_InsertMedicalTest.sql" />
+    <Build Include="Stored Procedures\sp_DeleteVisit.sql" />
+    <Build Include="Stored Procedures\sp_DeletePatient.sql" />
+    <Build Include="Stored Procedures\sp_DeleteMedicalTestType.sql" />
+    <Build Include="Stored Procedures\sp_DeleteMedicalTest.sql" />
+  </ItemGroup>
+</Project>

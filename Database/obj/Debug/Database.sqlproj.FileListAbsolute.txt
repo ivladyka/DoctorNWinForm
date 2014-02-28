@@ -1,0 +1,9 @@
+E:\Project\DoctorNWinForm\Database\bin\Debug\Database.dacpac
+E:\Project\DoctorNWinForm\Database\bin\Debug\db.vikkisoft.doctorN.dll
+E:\Project\DoctorNWinForm\Database\bin\Debug\db.vikkisoft.doctorN.pdb
+E:\Project\DoctorNWinForm\Database\obj\Debug\Model.xml
+E:\Project\DoctorNWinForm\Database\obj\Debug\refactor.xml
+E:\Project\DoctorNWinForm\Database\obj\Debug\postdeploy.sql
+E:\Project\DoctorNWinForm\Database\obj\Debug\predeploy.sql
+E:\Project\DoctorNWinForm\Database\obj\Debug\db.vikkisoft.doctorN.dll
+E:\Project\DoctorNWinForm\Database\obj\Debug\db.vikkisoft.doctorN.pdb
