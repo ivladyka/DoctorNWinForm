@@ -45,7 +45,7 @@
             this.dgvMedicalTestType.MultiSelect = false;
             this.dgvMedicalTestType.Name = "dgvMedicalTestType";
             this.dgvMedicalTestType.ReadOnly = true;
-            this.dgvMedicalTestType.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dgvMedicalTestType.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dgvMedicalTestType.RowTemplate.Height = 28;
             this.dgvMedicalTestType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicalTestType_CellClick);
             // 

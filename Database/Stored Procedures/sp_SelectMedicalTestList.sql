@@ -19,5 +19,7 @@ BEGIN
 		MedicalTestType ON MedicalTest.MedicalTestTypeID = MedicalTestType.MedicalTestTypeID
 	WHERE
 		MedicalTest.VisitID = @VisitID
+	ORDER BY
+		MedicalTest.Date DESC
 
 END

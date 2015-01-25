@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
         {
             if (MedicalTestTypeID > 0)
             {
-                this.Text = "Редагувати тип аналізу";
+                this.Text = "Редагувати тип документу";
                 DataRow dr = VikkiSoft.Data.MedicalTestType.SelectOne(MedicalTestTypeID);
                 if (dr != null)
                 {
@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
         {
             if (tbName.Text.TrimEnd() == "")
             {
-                MessageBox.Show("Введіть, будь-ласка, тип аналізу!", "Doctor N", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Введіть, будь-ласка, тип документу!", "Doctor N", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.None;
                 return;
             }

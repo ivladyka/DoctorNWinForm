@@ -66,9 +66,11 @@
     <Folder Include="Stored Procedures\" />
     <Folder Include="Sql Scripts" />
     <Folder Include="Sql Scripts\Change Scripts" />
+    <Folder Include="Sql Scripts\Update" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlSchemaCompareToLocal.scmp" />
+    <None Include="Sql Scripts\Update\01_24_2015.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Visit.sql" />

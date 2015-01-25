@@ -4,7 +4,11 @@
 	@LastName nvarchar(50),
 	@MiddleName nvarchar(50),
 	@Birthday smalldatetime,
-	@Notes nvarchar(max)
+	@Notes nvarchar(max),
+	@Education nvarchar(50),
+	@WorkPosition nvarchar(50),
+	@Phone nvarchar(50),
+	@FinancialNotes nvarchar(max)
 )
 AS
 BEGIN
@@ -16,13 +20,21 @@ BEGIN
            ,[LastName]
            ,[MiddleName]
            ,[Birthday]
-           ,[Notes])
+           ,[Notes]
+		   ,Education
+		   ,WorkPosition
+		   ,Phone
+		   ,FinancialNotes)
      VALUES
            (@FirstName
            ,@LastName
            ,@MiddleName
            ,@Birthday
-           ,@Notes)
+           ,@Notes
+		   ,@Education
+		   ,@WorkPosition
+		   ,@Phone
+		   ,@FinancialNotes)
 
 	SET @PatientID = (SELECT @@Identity)
 	RETURN ISNULL(@PatientID, 0)

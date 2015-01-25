@@ -45,25 +45,28 @@
             // dtpDate
             // 
             this.dtpDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Location = new System.Drawing.Point(71, 6);
             this.dtpDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(132, 29);
+            this.dtpDate.Size = new System.Drawing.Size(113, 24);
             this.dtpDate.TabIndex = 17;
             // 
             // lblBirhday
             // 
             this.lblBirhday.AutoSize = true;
-            this.lblBirhday.Location = new System.Drawing.Point(12, 9);
+            this.lblBirhday.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBirhday.Location = new System.Drawing.Point(12, 8);
             this.lblBirhday.Name = "lblBirhday";
-            this.lblBirhday.Size = new System.Drawing.Size(59, 24);
+            this.lblBirhday.Size = new System.Drawing.Size(52, 18);
             this.lblBirhday.TabIndex = 16;
             this.lblBirhday.Text = "Дата:";
             // 
             // tbAnamnesis
             // 
-            this.tbAnamnesis.Location = new System.Drawing.Point(14, 68);
+            this.tbAnamnesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbAnamnesis.Location = new System.Drawing.Point(14, 57);
             this.tbAnamnesis.Margin = new System.Windows.Forms.Padding(6);
             this.tbAnamnesis.MaxLength = 0;
             this.tbAnamnesis.Multiline = true;
@@ -75,15 +78,17 @@
             // lblAnamnesis
             // 
             this.lblAnamnesis.AutoSize = true;
-            this.lblAnamnesis.Location = new System.Drawing.Point(12, 38);
+            this.lblAnamnesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAnamnesis.Location = new System.Drawing.Point(12, 35);
             this.lblAnamnesis.Name = "lblAnamnesis";
-            this.lblAnamnesis.Size = new System.Drawing.Size(94, 24);
+            this.lblAnamnesis.Size = new System.Drawing.Size(80, 18);
             this.lblAnamnesis.TabIndex = 18;
             this.lblAnamnesis.Text = "Анамнез:";
             // 
             // tbPrescription
             // 
-            this.tbPrescription.Location = new System.Drawing.Point(13, 281);
+            this.tbPrescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPrescription.Location = new System.Drawing.Point(13, 270);
             this.tbPrescription.Margin = new System.Windows.Forms.Padding(6);
             this.tbPrescription.MaxLength = 0;
             this.tbPrescription.Multiline = true;
@@ -95,20 +100,21 @@
             // lblPrescription
             // 
             this.lblPrescription.AutoSize = true;
-            this.lblPrescription.Location = new System.Drawing.Point(11, 251);
+            this.lblPrescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPrescription.Location = new System.Drawing.Point(11, 246);
             this.lblPrescription.Name = "lblPrescription";
-            this.lblPrescription.Size = new System.Drawing.Size(134, 24);
+            this.lblPrescription.Size = new System.Drawing.Size(115, 18);
             this.lblPrescription.TabIndex = 20;
             this.lblPrescription.Text = "Призначення:";
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.Location = new System.Drawing.Point(545, 469);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCancel.Location = new System.Drawing.Point(545, 452);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(164, 44);
+            this.btnCancel.Size = new System.Drawing.Size(164, 32);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Відмінити";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -116,11 +122,11 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(360, 469);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.Location = new System.Drawing.Point(360, 452);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(164, 44);
+            this.btnSave.Size = new System.Drawing.Size(164, 32);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Зберегти";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -128,25 +134,26 @@
             // 
             // btnMedicalTest
             // 
-            this.btnMedicalTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMedicalTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnMedicalTest.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnMedicalTest.Location = new System.Drawing.Point(864, 9);
             this.btnMedicalTest.Margin = new System.Windows.Forms.Padding(6);
             this.btnMedicalTest.Name = "btnMedicalTest";
-            this.btnMedicalTest.Size = new System.Drawing.Size(205, 44);
+            this.btnMedicalTest.Size = new System.Drawing.Size(205, 32);
             this.btnMedicalTest.TabIndex = 25;
-            this.btnMedicalTest.Text = "Додати аналіз";
+            this.btnMedicalTest.Text = "Додати документ";
             this.btnMedicalTest.UseVisualStyleBackColor = true;
             this.btnMedicalTest.Click += new System.EventHandler(this.btnMedicalTest_Click);
             // 
             // lblMedicalTest
             // 
             this.lblMedicalTest.AutoSize = true;
-            this.lblMedicalTest.Location = new System.Drawing.Point(724, 34);
+            this.lblMedicalTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMedicalTest.Location = new System.Drawing.Point(527, 34);
             this.lblMedicalTest.Name = "lblMedicalTest";
-            this.lblMedicalTest.Size = new System.Drawing.Size(84, 24);
+            this.lblMedicalTest.Size = new System.Drawing.Size(100, 18);
             this.lblMedicalTest.TabIndex = 24;
-            this.lblMedicalTest.Text = "Аналізи:";
+            this.lblMedicalTest.Text = "Документи:";
             // 
             // dgvMedicalTests
             // 
@@ -155,14 +162,14 @@
             this.dgvMedicalTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvMedicalTests.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMedicalTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicalTests.Location = new System.Drawing.Point(523, 64);
+            this.dgvMedicalTests.Location = new System.Drawing.Point(523, 56);
             this.dgvMedicalTests.Margin = new System.Windows.Forms.Padding(6);
             this.dgvMedicalTests.MultiSelect = false;
             this.dgvMedicalTests.Name = "dgvMedicalTests";
             this.dgvMedicalTests.ReadOnly = true;
-            this.dgvMedicalTests.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dgvMedicalTests.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dgvMedicalTests.RowTemplate.Height = 28;
-            this.dgvMedicalTests.Size = new System.Drawing.Size(558, 392);
+            this.dgvMedicalTests.Size = new System.Drawing.Size(558, 389);
             this.dgvMedicalTests.TabIndex = 26;
             this.dgvMedicalTests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicalTests_CellClick);
             // 
@@ -170,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 519);
+            this.ClientSize = new System.Drawing.Size(1084, 490);
             this.Controls.Add(this.dgvMedicalTests);
             this.Controls.Add(this.btnMedicalTest);
             this.Controls.Add(this.lblMedicalTest);

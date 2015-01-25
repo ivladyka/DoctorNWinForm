@@ -40,15 +40,15 @@ namespace WindowsFormsApplication1
             lnkColEdit.DataPropertyName = "LastName";
             lnkColEdit.LinkColor = Color.Blue;
             lnkColEdit.VisitedLinkColor = Color.Blue;
-            lnkColEdit.Width = 180;
-            lnkColEdit.MinimumWidth = 180;
+            lnkColEdit.Width = 150;
+            lnkColEdit.MinimumWidth = 150;
             dgvPatients.Columns.Add(lnkColEdit);
 
-            string[] arrDataPropertyName = { "FirstName", "MiddleName", "Birthday", "Notes" };
-            string[] arrName = { "Ім'я", "Побатькові", "Дата Народження", "Примітки" };
-            int[] arrWidth = { 180, 180, 130, 500 };
+            string[] arrDataPropertyName = { "FirstName", "MiddleName", "Birthday", "Phone", "Notes", "Notes" };
+            string[] arrName = { "Ім'я", "Побатькові", "Дата Народження", "Телефон", "Примітки Загальні", "Примітки Фінансові" };
+            int[] arrWidth = { 140, 140, 125, 130, 350, 350 };
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 6; i++)
             {
                 DataGridViewTextBoxColumn dgvc = new DataGridViewTextBoxColumn();
                 dgvc.Name = arrName[i];
@@ -68,6 +68,10 @@ namespace WindowsFormsApplication1
             btnColDelete.MinimumWidth = 120;
             btnColDelete.DataPropertyName = "DeleteColumn";
             dgvPatients.Columns.Add(btnColDelete);
+            foreach (DataGridViewColumn c in dgvPatients.Columns)
+            {
+                c.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            }
         }
 
         private void LoadData()
@@ -78,21 +82,24 @@ namespace WindowsFormsApplication1
 
         private void dgvPatients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataRow dr = (DataRow)((DataTable)this.dgvPatients.DataSource).Rows[e.RowIndex];
-            int patientID = int.Parse(dr["PatientID"].ToString());
-            switch (e.ColumnIndex)
+            if (e.RowIndex >= 0)
             {
-                case 0:
-                    m_EditedIndex = e.RowIndex;
-                    ShowEditPatientFormForm(patientID);
-                    break;
-                case 5:
-                    if (MessageBox.Show("Ви дійсно бажаєте видалити цього пацієнта?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        VikkiSoft.Data.Patient.DeletePatient(patientID);
-                        LoadData();
-                    }
-                    break;
+                DataRow dr = (DataRow)((DataTable)this.dgvPatients.DataSource).Rows[e.RowIndex];
+                int patientID = int.Parse(dr["PatientID"].ToString());
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+                        m_EditedIndex = e.RowIndex;
+                        ShowEditPatientFormForm(patientID);
+                        break;
+                    case 7:
+                        if (MessageBox.Show("Ви дійсно бажаєте видалити цього пацієнта?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            VikkiSoft.Data.Patient.DeletePatient(patientID);
+                            LoadData();
+                        }
+                        break;
+                }
             }
         }
 

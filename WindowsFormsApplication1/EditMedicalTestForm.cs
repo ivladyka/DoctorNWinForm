@@ -60,7 +60,13 @@ namespace WindowsFormsApplication1
             ddlMedicalTestType.DataSource = VikkiSoft.Data.MedicalTestType.SelectList();
             if (MedicalTestID > 0)
             {
-                this.Text = "Редагувати Аналіз";
+                this.Text = "Редагувати Документ";
+                lblDoument.Visible = false;
+                tbFileName.Visible = false;
+                btnSelect.Visible = false;
+                btnSave.Location = new Point(169, 76);
+                btnCancel.Location = new Point(354, 76);
+                this.Size = new Size(551, 161);
                 DataRow dr = VikkiSoft.Data.MedicalTest.SelectOne(MedicalTestID);
                 if (dr != null)
                 {
@@ -80,7 +86,7 @@ namespace WindowsFormsApplication1
             {
                 if (tbFileName.Text.TrimEnd() == "")
                 {
-                    MessageBox.Show("Виберіть аналіз!", "Doctor N", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Виберіть документ!", "Doctor N", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.DialogResult = DialogResult.None;
                     return;
                 }

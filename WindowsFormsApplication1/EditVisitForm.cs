@@ -60,22 +60,26 @@ namespace WindowsFormsApplication1
             btnMedicalTest.Visible = lblMedicalTest.Visible = dgvMedicalTests.Visible = (VisitID > 0);
             if (VisitID == 0)
              {
-                 this.Width = 730;
+                 this.Width = 540;
+                 btnSave.Location = new Point(150, 452);
+                 btnCancel.Location = new Point(335, 452);
              }
              else
              {
                  dgvMedicalTests.AutoGenerateColumns = false;
                  dgvMedicalTests.Columns.Clear();
 
-                 DataGridViewTextBoxColumn dgvcDate = new DataGridViewTextBoxColumn();
+                 DataGridViewLinkColumn dgvcDate = new DataGridViewLinkColumn();
                  dgvcDate.Name = "Дата";
                  dgvcDate.DataPropertyName = "Date";
                  dgvcDate.Width = dgvcDate.MinimumWidth = 80;
+                 dgvcDate.LinkColor = Color.Blue;
+                 dgvcDate.VisitedLinkColor = Color.Blue;
                  dgvcDate.DefaultCellStyle.Format = "dd/MM/yyyy";
                  dgvMedicalTests.Columns.Add(dgvcDate);
 
                  DataGridViewTextBoxColumn dgvc = new DataGridViewTextBoxColumn();
-                 dgvc.Name = "Тип аналізу";
+                 dgvc.Name = "Тип документу";
                  dgvc.DataPropertyName = "MedicalTestTypeName";
                  dgvc.Width = dgvc.MinimumWidth = 180;
                  dgvMedicalTests.Columns.Add(dgvc);
@@ -95,6 +99,10 @@ namespace WindowsFormsApplication1
                  btnColDelete.MinimumWidth = 110;
                  btnColDelete.DataPropertyName = "DeleteColumn";
                  dgvMedicalTests.Columns.Add(btnColDelete);
+                 foreach (DataGridViewColumn c in dgvMedicalTests.Columns)
+                 {
+                     c.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
+                 }
              }
         }
 
@@ -152,31 +160,34 @@ namespace WindowsFormsApplication1
 
         private void dgvMedicalTests_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataRow dr = (DataRow)((DataTable)this.dgvMedicalTests.DataSource).Rows[e.RowIndex];
-            int medicalTestID = int.Parse(dr["MedicalTestID"].ToString());
-            switch (e.ColumnIndex)
+            if (e.RowIndex >= 0)
             {
-                case 0:
-                    m_EditedIndex = e.RowIndex;
-                    ShowEditVisitForm(medicalTestID);
-                    break;
-                case 2:
-                    System.Diagnostics.Process.Start(System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "//" + VisitID.ToString()
-                        + "//" + dr["FileName"].ToString());
-                    break;
-                case 3:
-                    if (MessageBox.Show("Ви дійсно бажаєте видалити цей аналіз?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        string medicalTestFolder = System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "//" + VisitID.ToString();
-                        string filePath = Path.Combine(medicalTestFolder, dr["FileName"].ToString());
-                        if (File.Exists(filePath))
+                DataRow dr = (DataRow)((DataTable)this.dgvMedicalTests.DataSource).Rows[e.RowIndex];
+                int medicalTestID = int.Parse(dr["MedicalTestID"].ToString());
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+                        m_EditedIndex = e.RowIndex;
+                        ShowEditVisitForm(medicalTestID);
+                        break;
+                    case 2:
+                        System.Diagnostics.Process.Start(@System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "\\" + VisitID.ToString()
+                            + "\\" + dr["FileName"].ToString());
+                        break;
+                    case 3:
+                        if (MessageBox.Show("Ви дійсно бажаєте видалити цей документ?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            File.Delete(filePath);
+                            string medicalTestFolder = System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "\\" + VisitID.ToString();
+                            string filePath = Path.Combine(medicalTestFolder, dr["FileName"].ToString());
+                            if (File.Exists(filePath))
+                            {
+                                File.Delete(filePath);
+                            }
+                            VikkiSoft.Data.MedicalTest.DeleteMedical(medicalTestID);
+                            LoadMedicalTest();
                         }
-                        VikkiSoft.Data.MedicalTest.DeleteMedical(medicalTestID);
-                        LoadMedicalTest();
-                    }
-                    break;
+                        break;
+                }
             }
         }
     }

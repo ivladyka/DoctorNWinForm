@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             dgvMedicalTestType.AutoGenerateColumns = false;
 
             DataGridViewLinkColumn lnkColEdit = new DataGridViewLinkColumn();
-            lnkColEdit.Name = "Тип аналізу";
+            lnkColEdit.Name = "Тип документу";
             lnkColEdit.ToolTipText = "Name";
             lnkColEdit.DataPropertyName = "Name";
             lnkColEdit.LinkColor = Color.Blue;
@@ -43,6 +43,10 @@ namespace WindowsFormsApplication1
             btnColDelete.MinimumWidth = 120;
             btnColDelete.DataPropertyName = "DeleteColumn";
             dgvMedicalTestType.Columns.Add(btnColDelete);
+            foreach (DataGridViewColumn c in dgvMedicalTestType.Columns)
+            {
+                c.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            }
         }
 
         private void LoadData()
@@ -58,28 +62,31 @@ namespace WindowsFormsApplication1
 
         private void dgvMedicalTestType_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataRow dr = (DataRow)((DataTable)this.dgvMedicalTestType.DataSource).Rows[e.RowIndex];
-            int medicalTestTypeID = int.Parse(dr["MedicalTestTypeID"].ToString());
-            switch (e.ColumnIndex)
+            if (e.RowIndex >= 0)
             {
-                case 0:
-                    m_EditedIndex = e.RowIndex;
-                    ShowAddMedicalTestTypeForm(medicalTestTypeID);
-                    break;
-                case 1:
-                    if (MessageBox.Show("Ви дійсно бажаєте видалити цей тип аналізу?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        try
+                DataRow dr = (DataRow)((DataTable)this.dgvMedicalTestType.DataSource).Rows[e.RowIndex];
+                int medicalTestTypeID = int.Parse(dr["MedicalTestTypeID"].ToString());
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+                        m_EditedIndex = e.RowIndex;
+                        ShowAddMedicalTestTypeForm(medicalTestTypeID);
+                        break;
+                    case 1:
+                        if (MessageBox.Show("Ви дійсно бажаєте видалити цей тип документу?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            VikkiSoft.Data.MedicalTestType.DeleteMedicalTestType(medicalTestTypeID);
-                            LoadData();
+                            try
+                            {
+                                VikkiSoft.Data.MedicalTestType.DeleteMedicalTestType(medicalTestTypeID);
+                                LoadData();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Ви не можете видалити цей тип аналізу, тому що він використовується.", "Doctor N", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        catch
-                        {
-                            MessageBox.Show("Ви не можете видалити цей тип аналізу, тому що він використовується.", "Doctor N", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    break;
+                        break;
+                }
             }
         }
 

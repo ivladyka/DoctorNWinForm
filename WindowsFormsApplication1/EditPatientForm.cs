@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             btnAddVisit.Visible = lblVisits.Visible = dgvVisits.Visible = (PatientID > 0);
             if (PatientID == 0)
             {
-                this.Height = 250;
+                this.Height = 280;
             }
             else
             {
@@ -71,6 +71,10 @@ namespace WindowsFormsApplication1
                 btnColDelete.MinimumWidth = 120;
                 btnColDelete.DataPropertyName = "DeleteColumn";
                 dgvVisits.Columns.Add(btnColDelete);
+                foreach (DataGridViewColumn c in dgvVisits.Columns)
+                {
+                    c.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
+                }
             }
         }
 
@@ -103,12 +107,12 @@ namespace WindowsFormsApplication1
             if (PatientID > 0)
             {
                 VikkiSoft.Data.Patient.UpdatePatient(PatientID, tbFirstName.Text.TrimEnd(), tbLastName.Text.TrimEnd(),
-                    tbMiddleName.Text.TrimEnd(), dtpBirthday.Value, tbNotes.Text);
+                    tbMiddleName.Text.TrimEnd(), dtpBirthday.Value, tbNotes.Text, tbEducation.Text, tbWorkPosition.Text, tbPhone.Text, tbFinancialNotes.Text);
             }
             else
             {
                 PatientID = VikkiSoft.Data.Patient.InsertPatient(tbFirstName.Text.TrimEnd(), tbLastName.Text.TrimEnd(),
-                    tbMiddleName.Text.TrimEnd(), dtpBirthday.Value, tbNotes.Text);
+                    tbMiddleName.Text.TrimEnd(), dtpBirthday.Value, tbNotes.Text, tbEducation.Text, tbWorkPosition.Text, tbPhone.Text, tbFinancialNotes.Text);
                 LoadVisit();
             }
         }
@@ -136,6 +140,22 @@ namespace WindowsFormsApplication1
                     {
                         tbNotes.Text = dr["Notes"].ToString();
                     }
+                    if (!dr.IsNull("Education"))
+                    {
+                        tbEducation.Text = dr["Education"].ToString();
+                    }
+                    if (!dr.IsNull("WorkPosition"))
+                    {
+                        tbWorkPosition.Text = dr["WorkPosition"].ToString();
+                    }
+                    if (!dr.IsNull("Phone"))
+                    {
+                        tbPhone.Text = dr["Phone"].ToString();
+                    }
+                    if (!dr.IsNull("FinancialNotes"))
+                    {
+                        tbFinancialNotes.Text = dr["FinancialNotes"].ToString();
+                    }
                 }
             }
         }
@@ -160,26 +180,29 @@ namespace WindowsFormsApplication1
 
         private void dgvVisits_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataRow dr = (DataRow)((DataTable)this.dgvVisits.DataSource).Rows[e.RowIndex];
-            int visitID = int.Parse(dr["VisitID"].ToString());
-            switch (e.ColumnIndex)
+            if (e.RowIndex >= 0)
             {
-                case 0:
-                    m_EditedIndex = e.RowIndex;
-                    ShowEditVisitForm(visitID);
-                    break;
-                case 3:
-                    if (MessageBox.Show("Ви дійсно бажаєте видалити цей візит?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        string medicalTestFolder = System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "//" + visitID.ToString();
-                        if (Directory.Exists(medicalTestFolder))
+                DataRow dr = (DataRow)((DataTable)this.dgvVisits.DataSource).Rows[e.RowIndex];
+                int visitID = int.Parse(dr["VisitID"].ToString());
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+                        m_EditedIndex = e.RowIndex;
+                        ShowEditVisitForm(visitID);
+                        break;
+                    case 3:
+                        if (MessageBox.Show("Ви дійсно бажаєте видалити цей візит?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            Directory.Delete(medicalTestFolder);
+                            string medicalTestFolder = System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "//" + visitID.ToString();
+                            if (Directory.Exists(medicalTestFolder))
+                            {
+                                Directory.Delete(medicalTestFolder, true);
+                            }
+                            VikkiSoft.Data.Visit.DeleteVisit(visitID);
+                            LoadVisit();
                         }
-                        VikkiSoft.Data.Visit.DeleteVisit(visitID);
-                        LoadVisit();
-                    }
-                    break;
+                        break;
+                }
             }
         }
     }

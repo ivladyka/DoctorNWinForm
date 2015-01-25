@@ -64,8 +64,8 @@
             // MedicalTestTypeManuItem
             // 
             this.MedicalTestTypeManuItem.Name = "MedicalTestTypeManuItem";
-            this.MedicalTestTypeManuItem.Size = new System.Drawing.Size(152, 22);
-            this.MedicalTestTypeManuItem.Text = "Типи Аналізів";
+            this.MedicalTestTypeManuItem.Size = new System.Drawing.Size(168, 22);
+            this.MedicalTestTypeManuItem.Text = "Типи Документів";
             this.MedicalTestTypeManuItem.Click += new System.EventHandler(this.MedicalTestTypeManuItem_Click);
             // 
             // MainForm

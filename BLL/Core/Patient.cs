@@ -7,7 +7,8 @@ namespace VikkiSoft.Data
 {
     public class Patient : DBAccess
     {
-        public static int InsertPatient(string firstName, string lastName, string middleName, DateTime birthday, string notes)
+        public static int InsertPatient(string firstName, string lastName, string middleName, DateTime birthday, string notes,
+            string education, string workPosition, string phone, string financialNotes)
         {
             SqlParameter sqlpBirthday = new SqlParameter("@Birthday", SqlDbType.DateTime);
             if (birthday > new DateTime(1900, 1, 1))
@@ -27,11 +28,16 @@ namespace VikkiSoft.Data
             p.Add(new SqlParameter("@MiddleName", middleName));
             p.Add(sqlpBirthday);
             p.Add(new SqlParameter("@Notes", notes));
+            p.Add(new SqlParameter("@Education", education));
+            p.Add(new SqlParameter("@WorkPosition", workPosition));
+            p.Add(new SqlParameter("@Phone", phone));
+            p.Add(new SqlParameter("@FinancialNotes", financialNotes));
             UpdateData("sp_InsertPatient", p.ToArray());
             return (int)p[0].Value;
         }
 
-        public static void UpdatePatient(int patientID, string firstName, string lastName, string middleName, DateTime birthday, string notes)
+        public static void UpdatePatient(int patientID, string firstName, string lastName, string middleName, DateTime birthday, string notes,
+            string education, string workPosition, string phone, string financialNotes)
         {
             SqlParameter sqlpBirthday = new SqlParameter("@Birthday", SqlDbType.DateTime);
             if (birthday > new DateTime(1900, 1, 1))
@@ -49,7 +55,12 @@ namespace VikkiSoft.Data
                 new SqlParameter("@LastName", lastName),
                 new SqlParameter("@MiddleName", middleName),
                 sqlpBirthday,
-                new SqlParameter("@Notes", notes)});
+                new SqlParameter("@Notes", notes),
+                new SqlParameter("@Education", education),
+                new SqlParameter("@WorkPosition", workPosition),
+                new SqlParameter("@Phone", phone),
+                new SqlParameter("@FinancialNotes", financialNotes)
+                });
         }
 
         public static DataTable SelectList(string firstName, string lastName)

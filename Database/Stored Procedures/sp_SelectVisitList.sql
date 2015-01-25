@@ -16,5 +16,7 @@ BEGIN
 		[dbo].[Visit]
 	WHERE
 		PatientID = @PatientID
+	ORDER BY
+		[Date] DESC
 
 END
