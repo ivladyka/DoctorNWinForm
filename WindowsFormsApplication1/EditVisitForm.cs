@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         private int m_VisitID = 0;
         private int m_PatientID = 0;
         private int m_EditedIndex = -1;
+        private int m_CountFilesMax = 0;
 
         public EditVisitForm()
         {
@@ -55,6 +56,18 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private int CountFilesMax
+        {
+            get
+            {
+                return m_CountFilesMax;
+            }
+            set
+            {
+                m_CountFilesMax = value;
+            }
+        }
+
         private void LoadMedicalTest()
         {
             btnMedicalTest.Visible = lblMedicalTest.Visible = dgvMedicalTests.Visible = (VisitID > 0);
@@ -68,6 +81,40 @@ namespace WindowsFormsApplication1
              {
                  dgvMedicalTests.AutoGenerateColumns = false;
                  dgvMedicalTests.Columns.Clear();
+
+                 DataTable dt = VikkiSoft.Data.MedicalTest.SelectList(VisitID);
+                 CountFilesMax = GetFilesMaxCount(dt);
+                 for (int i = 0; i < CountFilesMax; i++)
+                 {
+                     DataColumn col = new DataColumn();
+                     col.DataType = System.Type.GetType("System.String");
+                     col.AllowDBNull = true;
+                     col.Caption = "";
+                     col.ColumnName = "ViewColumn" + i.ToString();
+                     col.DefaultValue = string.Empty;
+                     dt.Columns.Add(col);
+
+                     col = new DataColumn();
+                     col.DataType = System.Type.GetType("System.String");
+                     col.AllowDBNull = false;
+                     col.Caption = "";
+                     col.ColumnName = "FileName" + i.ToString();
+                     col.DefaultValue = string.Empty;
+                     dt.Columns.Add(col);
+                 }
+
+                 foreach (DataRow dr in dt.Rows)
+                 {
+                     if (!dr.IsNull("AllFiles"))
+                     {
+                         string[] arrFiles = dr["AllFiles"].ToString().Split(',');
+                         for (int i = 0; i < arrFiles.Length; i++)
+                         {
+                             dr["ViewColumn" + i.ToString()] = (i+1).ToString();
+                             dr["FileName" + i.ToString()] = arrFiles[i];
+                         }
+                     }
+                 }
 
                  DataGridViewLinkColumn dgvcDate = new DataGridViewLinkColumn();
                  dgvcDate.Name = "Дата";
@@ -84,15 +131,20 @@ namespace WindowsFormsApplication1
                  dgvc.Width = dgvc.MinimumWidth = 180;
                  dgvMedicalTests.Columns.Add(dgvc);
 
-                 DataGridViewLinkColumn lnkColView = new DataGridViewLinkColumn();
-                 lnkColView.Name = "";
-                 lnkColView.DataPropertyName = "ViewColumn";
-                 lnkColView.LinkColor = Color.Blue;
-                 lnkColView.VisitedLinkColor = Color.Blue;
-                 lnkColView.Width = 80;
-                 lnkColView.MinimumWidth = 80;
-                 dgvMedicalTests.Columns.Add(lnkColView);
-                 dgvMedicalTests.DataSource = VikkiSoft.Data.MedicalTest.SelectList(VisitID);
+                 for (int i = 0; i < CountFilesMax; i++)
+                 {
+                     DataGridViewLinkColumn lnkColView = new DataGridViewLinkColumn();
+                     lnkColView.Name = "";
+                     lnkColView.DataPropertyName = "ViewColumn" + i.ToString();
+                     lnkColView.LinkColor = Color.Blue;
+                     lnkColView.VisitedLinkColor = Color.Blue;
+                     lnkColView.Width = 10;
+                     lnkColView.MinimumWidth = 10;
+                     lnkColView.ToolTipText = "Проглянути";
+                     dgvMedicalTests.Columns.Add(lnkColView);
+                 }
+
+                 dgvMedicalTests.DataSource = dt;
                  DataGridViewButtonColumn btnColDelete = new DataGridViewButtonColumn();
                  btnColDelete.Name = "";
                  btnColDelete.Width = 110;
@@ -104,6 +156,23 @@ namespace WindowsFormsApplication1
                      c.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
                  }
              }
+        }
+
+        private int GetFilesMaxCount(DataTable dt)
+        {
+            int count = 0;
+            foreach(DataRow dr in dt.Rows)
+            {
+                if (!dr.IsNull("AllFiles"))
+                {
+                    string[] arrFiles = dr["AllFiles"].ToString().Split(',');
+                    if(arrFiles.Length > count)
+                    {
+                        count = arrFiles.Length;
+                    }
+                }
+            }
+            return count;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -164,30 +233,45 @@ namespace WindowsFormsApplication1
             {
                 DataRow dr = (DataRow)((DataTable)this.dgvMedicalTests.DataSource).Rows[e.RowIndex];
                 int medicalTestID = int.Parse(dr["MedicalTestID"].ToString());
-                switch (e.ColumnIndex)
+                if (e.ColumnIndex == (CountFilesMax + 2))
                 {
-                    case 0:
-                        m_EditedIndex = e.RowIndex;
-                        ShowEditVisitForm(medicalTestID);
-                        break;
-                    case 2:
-                        System.Diagnostics.Process.Start(@System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "\\" + VisitID.ToString()
-                            + "\\" + dr["FileName"].ToString());
-                        break;
-                    case 3:
-                        if (MessageBox.Show("Ви дійсно бажаєте видалити цей документ?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (MessageBox.Show("Ви дійсно бажаєте видалити цей документ?", "Doctor N", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        string medicalTestFolder = System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "\\" + VisitID.ToString();
+                        for (int i = 0; i < CountFilesMax; i++)
                         {
-                            string medicalTestFolder = System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "\\" + VisitID.ToString();
-                            string filePath = Path.Combine(medicalTestFolder, dr["FileName"].ToString());
+                            string filePath = Path.Combine(medicalTestFolder, dr["FileName" + i.ToString()].ToString());
                             if (File.Exists(filePath))
                             {
                                 File.Delete(filePath);
                             }
-                            VikkiSoft.Data.MedicalTest.DeleteMedical(medicalTestID);
-                            LoadMedicalTest();
                         }
-                        break;
+                        VikkiSoft.Data.MedicalTest.DeleteMedical(medicalTestID);
+                        LoadMedicalTest();
+                    }
                 }
+                else if (e.ColumnIndex >= 2)
+                {
+                    System.Diagnostics.Process.Start(@System.Configuration.ConfigurationManager.AppSettings["MedicalTestFolder"] + "\\" + VisitID.ToString()
+                            + "\\" + dr["FileName" + (e.ColumnIndex - 2).ToString()].ToString());
+                }
+                else if (e.ColumnIndex == 0)
+                {
+                    m_EditedIndex = e.RowIndex;
+                    ShowEditVisitForm(medicalTestID);
+                }
+            }
+        }
+
+        private void dgvMedicalTests_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
+        {
+            if(e.ColumnIndex >= 2 && e.ColumnIndex <(CountFilesMax + 2))
+            {
+                e.ToolTipText = "Проглянути";
+            }
+            if (e.ColumnIndex == 0)
+            {
+                e.ToolTipText = "Редагувати";
             }
         }
     }

@@ -19,7 +19,7 @@ namespace VikkiSoft.Data
                 new SqlParameter[] { new SqlParameter("@VisitID", visitID) });
         }
 
-        public static int InsertMedicalTest(DateTime date, int medicalTestTypeID, string fileName, int visitID)
+        public static int InsertMedicalTest(DateTime date, int medicalTestTypeID, int visitID)
         {
             System.Collections.Generic.List<SqlParameter> p = new System.Collections.Generic.List<SqlParameter>();
             SqlParameter _pRVAL = new SqlParameter("@RETURN_VALUE", SqlDbType.Int);
@@ -27,7 +27,6 @@ namespace VikkiSoft.Data
             p.Add(_pRVAL);
             p.Add(new SqlParameter("@MedicalTestTypeID", medicalTestTypeID));
             p.Add(new SqlParameter("@Date", date));
-            p.Add(new SqlParameter("@FileName", fileName));
             p.Add(new SqlParameter("@VisitID", visitID));
             UpdateData("sp_InsertMedicalTest", p.ToArray());
             return (int)p[0].Value;

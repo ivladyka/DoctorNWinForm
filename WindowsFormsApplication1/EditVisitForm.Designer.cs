@@ -66,20 +66,20 @@
             // tbAnamnesis
             // 
             this.tbAnamnesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbAnamnesis.Location = new System.Drawing.Point(14, 57);
+            this.tbAnamnesis.Location = new System.Drawing.Point(14, 265);
             this.tbAnamnesis.Margin = new System.Windows.Forms.Padding(6);
             this.tbAnamnesis.MaxLength = 0;
             this.tbAnamnesis.Multiline = true;
             this.tbAnamnesis.Name = "tbAnamnesis";
             this.tbAnamnesis.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbAnamnesis.Size = new System.Drawing.Size(497, 177);
+            this.tbAnamnesis.Size = new System.Drawing.Size(498, 177);
             this.tbAnamnesis.TabIndex = 19;
             // 
             // lblAnamnesis
             // 
             this.lblAnamnesis.AutoSize = true;
             this.lblAnamnesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAnamnesis.Location = new System.Drawing.Point(12, 35);
+            this.lblAnamnesis.Location = new System.Drawing.Point(12, 238);
             this.lblAnamnesis.Name = "lblAnamnesis";
             this.lblAnamnesis.Size = new System.Drawing.Size(80, 18);
             this.lblAnamnesis.TabIndex = 18;
@@ -88,7 +88,7 @@
             // tbPrescription
             // 
             this.tbPrescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPrescription.Location = new System.Drawing.Point(13, 270);
+            this.tbPrescription.Location = new System.Drawing.Point(15, 57);
             this.tbPrescription.Margin = new System.Windows.Forms.Padding(6);
             this.tbPrescription.MaxLength = 0;
             this.tbPrescription.Multiline = true;
@@ -101,7 +101,7 @@
             // 
             this.lblPrescription.AutoSize = true;
             this.lblPrescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPrescription.Location = new System.Drawing.Point(11, 246);
+            this.lblPrescription.Location = new System.Drawing.Point(13, 33);
             this.lblPrescription.Name = "lblPrescription";
             this.lblPrescription.Size = new System.Drawing.Size(115, 18);
             this.lblPrescription.TabIndex = 20;
@@ -172,6 +172,7 @@
             this.dgvMedicalTests.Size = new System.Drawing.Size(558, 389);
             this.dgvMedicalTests.TabIndex = 26;
             this.dgvMedicalTests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicalTests_CellClick);
+            this.dgvMedicalTests.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dgvMedicalTests_CellToolTipTextNeeded);
             // 
             // EditVisitForm
             // 

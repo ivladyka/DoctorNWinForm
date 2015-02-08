@@ -62,6 +62,7 @@ namespace WindowsFormsApplication1
                     dgvc.DataPropertyName = arrDataPropertyName[i];
                     dgvc.Width = arrWidth[i];
                     dgvc.MinimumWidth = arrWidth[i];
+                    dgvc.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                     dgvVisits.Columns.Add(dgvc);
                 }
                 dgvVisits.DataSource = VikkiSoft.Data.Visit.SelectList(PatientID);

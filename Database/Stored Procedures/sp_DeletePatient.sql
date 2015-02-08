@@ -8,6 +8,17 @@ BEGIN
 	BEGIN TRANSACTION DeletePatientFullInfo
 
 	DELETE
+		Document
+	FROM
+		Document d 
+	INNER JOIN 
+		MedicalTest ON d.MedicalTestID = MedicalTest.MedicalTestID
+	INNER JOIN 
+		Visit ON MedicalTest.VisitID = Visit.VisitID
+	WHERE
+		Visit.PatientID = @PatientID
+
+	DELETE
 		MedicalTest
 	FROM
 		MedicalTest mt INNER JOIN Visit ON mt.VisitID = Visit.VisitID

@@ -59,6 +59,10 @@ namespace WindowsFormsApplication1
                 {
                     dgvc.DefaultCellStyle.Format = "dd/MM/yyyy";
                 }
+                if (i >= 4)
+                {
+                    dgvc.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                }
                 dgvPatients.Columns.Add(dgvc);
             }
             LoadData();

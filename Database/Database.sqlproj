@@ -97,5 +97,11 @@
     <Build Include="Stored Procedures\sp_DeletePatient.sql" />
     <Build Include="Stored Procedures\sp_DeleteMedicalTestType.sql" />
     <Build Include="Stored Procedures\sp_DeleteMedicalTest.sql" />
+    <Build Include="Tables\Document.sql" />
+    <Build Include="Functions\fx_GetAllFilesByMedicalTestID.sql" />
+    <Build Include="Stored Procedures\sp_InsertDocument.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Sql Scripts\Update\02_07_2015.sql" />
   </ItemGroup>
 </Project>

@@ -95,10 +95,15 @@ namespace WindowsFormsApplication1
                 {
                     System.IO.Directory.CreateDirectory(medicalTestFolder + "//");
                 }
-                string ext = Path.GetExtension(tbFileName.Text.TrimEnd());
-                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(tbFileName.Text.TrimEnd());
-                File.Copy(tbFileName.Text.TrimEnd(), medicalTestFolder + "//" + fileName);
-                VisitID = VikkiSoft.Data.MedicalTest.InsertMedicalTest(dtpDate.Value, int.Parse(ddlMedicalTestType.SelectedValue.ToString()), fileName, VisitID);
+
+                MedicalTestID = VikkiSoft.Data.MedicalTest.InsertMedicalTest(dtpDate.Value, int.Parse(ddlMedicalTestType.SelectedValue.ToString()), VisitID);
+                for (int i = 0; i < openFileDialog1.FileNames.Length; i++)
+                {
+                    string ext = Path.GetExtension(openFileDialog1.FileNames[i].TrimEnd());
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(openFileDialog1.FileNames[i].TrimEnd());
+                    File.Copy(openFileDialog1.FileNames[i], medicalTestFolder + "//" + fileName);
+                    VikkiSoft.Data.Document.InsertDocument(MedicalTestID, fileName);
+                }
             }
 
         }
@@ -108,12 +113,21 @@ namespace WindowsFormsApplication1
             openFileDialog1.Title = "Open File";
             openFileDialog1.Filter = "All Files|*.*";
             openFileDialog1.FileName = "";
+            openFileDialog1.Multiselect = true;
             openFileDialog1.ShowDialog();
 
             if (openFileDialog1.FileName == "")
                 return;
             else
-                tbFileName.Text = openFileDialog1.FileName;
+            {
+                string fileName = "";
+                for (int i = 0; i < openFileDialog1.FileNames.Length; i++ )
+                {
+                    fileName += openFileDialog1.FileNames[i] + ",";
+                }
+                fileName = fileName.TrimEnd(',');
+                tbFileName.Text = fileName;
+            }
         }
     }
 }

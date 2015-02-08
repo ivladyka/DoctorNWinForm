@@ -8,11 +8,10 @@ BEGIN
 	SELECT        
 		MedicalTest.MedicalTestID, 
 		MedicalTest.MedicalTestTypeID, 
-		MedicalTest.FileName, 
+		dbo.fx_GetAllFilesByMedicalTestID(MedicalTest.MedicalTestID) AS AllFiles, 
 		MedicalTest.Date,
 		MedicalTestType.Name AS MedicalTestTypeName,
-		'Видалити' AS DeleteColumn,
-		'Проглянути' AS ViewColumn
+		'Видалити' AS DeleteColumn
 	FROM            
 		MedicalTest 
 	INNER JOIN
