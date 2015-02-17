@@ -15,3 +15,10 @@ E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplica
 E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditPatientForm.resources
 E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditVisitForm.resources
 E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicalTestForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MedicationFormForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicationFormForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MedicationWindowsForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicationForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.WarehouseForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicationFlow.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicationWarehouseForm.resources

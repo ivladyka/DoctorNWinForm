@@ -57,6 +57,30 @@
     <Compile Include="EditMedicalTestForm.Designer.cs">
       <DependentUpon>EditMedicalTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditMedicationFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMedicationFlow.Designer.cs">
+      <DependentUpon>EditMedicationFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMedicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMedicationForm.Designer.cs">
+      <DependentUpon>EditMedicationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMedicationFormForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMedicationFormForm.Designer.cs">
+      <DependentUpon>EditMedicationFormForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMedicationWarehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMedicationWarehouseForm.Designer.cs">
+      <DependentUpon>EditMedicationWarehouseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +105,18 @@
     <Compile Include="MedicalTestTypeForm.Designer.cs">
       <DependentUpon>MedicalTestTypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicationFormForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicationFormForm.Designer.cs">
+      <DependentUpon>MedicationFormForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicationWindowsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicationWindowsForm.Designer.cs">
+      <DependentUpon>MedicationWindowsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchPatientForm.cs">
@@ -89,11 +125,29 @@
     <Compile Include="SearchPatientForm.Designer.cs">
       <DependentUpon>SearchPatientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WarehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WarehouseForm.Designer.cs">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddMedicalTestTypeForm.resx">
       <DependentUpon>AddMedicalTestTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditMedicalTestForm.resx">
       <DependentUpon>EditMedicalTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMedicationFlow.resx">
+      <DependentUpon>EditMedicationFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMedicationForm.resx">
+      <DependentUpon>EditMedicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMedicationFormForm.resx">
+      <DependentUpon>EditMedicationFormForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMedicationWarehouseForm.resx">
+      <DependentUpon>EditMedicationWarehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditPatientForm.resx">
       <DependentUpon>EditPatientForm.cs</DependentUpon>
@@ -107,6 +161,12 @@
     <EmbeddedResource Include="MedicalTestTypeForm.resx">
       <DependentUpon>MedicalTestTypeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MedicationFormForm.resx">
+      <DependentUpon>MedicationFormForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicationWindowsForm.resx">
+      <DependentUpon>MedicationWindowsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -118,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="SearchPatientForm.resx">
       <DependentUpon>SearchPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarehouseForm.resx">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

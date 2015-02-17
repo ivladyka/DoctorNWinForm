@@ -44,6 +44,10 @@
     <Compile Include="Core\Document.cs" />
     <Compile Include="Core\MedicalTest.cs" />
     <Compile Include="Core\MedicalTestType.cs" />
+    <Compile Include="Core\Medication.cs" />
+    <Compile Include="Core\MedicationFlow.cs" />
+    <Compile Include="Core\MedicationFlowType.cs" />
+    <Compile Include="Core\MedicationForm.cs" />
     <Compile Include="Core\Patient.cs" />
     <Compile Include="Core\Visit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -44,5 +44,32 @@ namespace WindowsFormsApplication1
             this.ActiveMdiChild.Close();
             OpenPatientSearchForm();
         }
+
+        private void MedicationFormMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Close();
+            MedicationFormForm frmMedicationForm = new MedicationFormForm();
+            frmMedicationForm.MdiParent = this;
+            frmMedicationForm.WindowState = FormWindowState.Maximized;
+            frmMedicationForm.Show();
+        }
+
+        private void MedicationMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Close();
+            MedicationWindowsForm frmMedicationWindowsForm = new MedicationWindowsForm();
+            frmMedicationWindowsForm.MdiParent = this;
+            frmMedicationWindowsForm.WindowState = FormWindowState.Maximized;
+            frmMedicationWindowsForm.Show();
+        }
+
+        private void WarehouseMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Close();
+            WarehouseForm frmWarehouseForm = new WarehouseForm();
+            frmWarehouseForm.MdiParent = this;
+            frmWarehouseForm.WindowState = FormWindowState.Maximized;
+            frmWarehouseForm.Show();
+        }
     }
 }

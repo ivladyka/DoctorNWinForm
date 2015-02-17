@@ -100,6 +100,7 @@
     <Build Include="Tables\Document.sql" />
     <Build Include="Functions\fx_GetAllFilesByMedicalTestID.sql" />
     <Build Include="Stored Procedures\sp_InsertDocument.sql" />
+    <Build Include="Sql Scripts\Update\02_15_2015.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Sql Scripts\Update\02_07_2015.sql" />
