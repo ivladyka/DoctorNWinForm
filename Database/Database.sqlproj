@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlSchemaCompareToLocal.scmp" />
-    <None Include="Sql Scripts\Update\01_24_2015.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Visit.sql" />
@@ -100,9 +99,32 @@
     <Build Include="Tables\Document.sql" />
     <Build Include="Functions\fx_GetAllFilesByMedicalTestID.sql" />
     <Build Include="Stored Procedures\sp_InsertDocument.sql" />
-    <Build Include="Sql Scripts\Update\02_15_2015.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Sql Scripts\Update\02_07_2015.sql" />
+    <Build Include="Tables\MedicationForm.sql" />
+    <Build Include="Tables\MedicationFlowType.sql" />
+    <Build Include="Tables\MedicationFlow.sql" />
+    <Build Include="Tables\Medication.sql" />
+    <Build Include="Stored Procedures\sp_UpdateMedicationForm.sql" />
+    <Build Include="Stored Procedures\sp_UpdateMedicationFlow.sql" />
+    <Build Include="Stored Procedures\sp_UpdateMedicationCountInStock.sql" />
+    <Build Include="Stored Procedures\sp_UpdateMedication.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationWarehouseList.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationListWithOffset.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationList.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationFormList.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationForm.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationFlowTypeList.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationFlowListByMedicationIDWithOffset.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationFlowCountByMedicationID.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationFlow.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedicationCount.sql" />
+    <Build Include="Stored Procedures\sp_SelectMedication.sql" />
+    <Build Include="Stored Procedures\sp_SelectDocumentListByMedicalTestID.sql" />
+    <Build Include="Stored Procedures\sp_InsertMedicationForm.sql" />
+    <Build Include="Stored Procedures\sp_InsertMedicationFlow.sql" />
+    <Build Include="Stored Procedures\sp_InsertMedication.sql" />
+    <Build Include="Stored Procedures\sp_DeleteMedicationForm.sql" />
+    <Build Include="Stored Procedures\sp_DeleteMedicationFlow.sql" />
+    <Build Include="Stored Procedures\sp_DeleteMedication.sql" />
+    <Build Include="Stored Procedures\sp_DeleteDocument.sql" />
   </ItemGroup>
 </Project>

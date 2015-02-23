@@ -217,13 +217,11 @@ namespace WindowsFormsApplication1
         private void ShowEditVisitForm(int medicalTestID)
         {
             EditMedicalTestForm frmEditMedicalTest = new EditMedicalTestForm(VisitID, medicalTestID);
-            if (frmEditMedicalTest.ShowDialog() == DialogResult.OK)
+            frmEditMedicalTest.ShowDialog();
+            LoadMedicalTest();
+            if (medicalTestID > 0)
             {
-                LoadMedicalTest();
-                if (medicalTestID > 0)
-                {
-                    dgvMedicalTests.Rows[m_EditedIndex].Cells[0].Selected = true;
-                }
+                dgvMedicalTests.Rows[m_EditedIndex].Cells[0].Selected = true;
             }
         }
 

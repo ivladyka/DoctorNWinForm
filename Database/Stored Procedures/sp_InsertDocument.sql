@@ -10,11 +10,13 @@ BEGIN
 
 	INSERT INTO [dbo].[Document]
            ([MedicalTestID]
-           ,[FileName])
+           ,[FileName]
+		   ,AddedDate)
 	VALUES
 	(
 		@MedicalTestID,
-		@FileName
+		@FileName,
+		GETDATE()
 	)
 
 	SET @DocumentID = (SELECT @@Identity)

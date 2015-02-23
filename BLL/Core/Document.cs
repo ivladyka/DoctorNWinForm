@@ -18,5 +18,19 @@ namespace VikkiSoft.Data
             UpdateData("sp_InsertDocument", p.ToArray());
             return (int)p[0].Value;
         }
+
+        public static DataTable SelectListByMedicalTestID(int medicalTestID)
+        {
+            return SelectRecords("sp_SelectDocumentListByMedicalTestID",
+                new SqlParameter[] { new SqlParameter("@MedicalTestID", medicalTestID) });
+        }
+
+        public static void DeleteDocument(int documentID)
+        {
+            UpdateData("sp_DeleteDocument", new SqlParameter[]
+			{
+				 new SqlParameter("@DocumentID", documentID)
+			});
+        }
     }
 }

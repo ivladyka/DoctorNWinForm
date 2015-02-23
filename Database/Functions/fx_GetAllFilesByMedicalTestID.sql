@@ -11,7 +11,7 @@ BEGIN
 
 	SET @AllFiles = ''
 	DECLARE @FileName nvarchar(50)
-	DECLARE l_cursor CURSOR FOR SELECT [FileName] FROM [Document] WHERE MedicalTestID=@MedicalTestID
+	DECLARE l_cursor CURSOR FOR SELECT [FileName] FROM [Document] WHERE MedicalTestID=@MedicalTestID ORDER BY AddedDate
 	OPEN l_cursor
 	FETCH NEXT FROM l_cursor INTO @FileName
 	WHILE @@FETCH_STATUS = 0
