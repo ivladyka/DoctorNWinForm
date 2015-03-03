@@ -30,11 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.PatientsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WarehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.налаштуванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MedicalTestTypeManuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MedicationFormMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MedicationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WarehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReminderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.PatientsMenuItem,
             this.WarehouseMenuItem,
+            this.ReminderMenuItem,
             this.налаштуванняToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -56,6 +58,13 @@
             this.PatientsMenuItem.Size = new System.Drawing.Size(69, 20);
             this.PatientsMenuItem.Text = "Пацієнти";
             this.PatientsMenuItem.Click += new System.EventHandler(this.PatientsMenuItem_Click);
+            // 
+            // WarehouseMenuItem
+            // 
+            this.WarehouseMenuItem.Name = "WarehouseMenuItem";
+            this.WarehouseMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.WarehouseMenuItem.Text = "Склад";
+            this.WarehouseMenuItem.Click += new System.EventHandler(this.WarehouseMenuItem_Click);
             // 
             // налаштуванняToolStripMenuItem
             // 
@@ -88,12 +97,12 @@
             this.MedicationMenuItem.Text = "Ліки";
             this.MedicationMenuItem.Click += new System.EventHandler(this.MedicationMenuItem_Click);
             // 
-            // WarehouseMenuItem
+            // ReminderMenuItem
             // 
-            this.WarehouseMenuItem.Name = "WarehouseMenuItem";
-            this.WarehouseMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.WarehouseMenuItem.Text = "Склад";
-            this.WarehouseMenuItem.Click += new System.EventHandler(this.WarehouseMenuItem_Click);
+            this.ReminderMenuItem.Name = "ReminderMenuItem";
+            this.ReminderMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.ReminderMenuItem.Text = "Нагадування";
+            this.ReminderMenuItem.Click += new System.EventHandler(this.ReminderMenuItem_Click);
             // 
             // MainForm
             // 
@@ -123,5 +132,6 @@
         private System.Windows.Forms.ToolStripMenuItem MedicationFormMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MedicationMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WarehouseMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ReminderMenuItem;
     }
 }

@@ -126,5 +126,11 @@
     <Build Include="Stored Procedures\sp_DeleteMedicationFlow.sql" />
     <Build Include="Stored Procedures\sp_DeleteMedication.sql" />
     <Build Include="Stored Procedures\sp_DeleteDocument.sql" />
+    <Build Include="Tables\Reminder.sql" />
+    <Build Include="Stored Procedures\sp_UpdateReminder.sql" />
+    <Build Include="Stored Procedures\sp_SelectReminderList.sql" />
+    <Build Include="Stored Procedures\sp_SelectReminder.sql" />
+    <Build Include="Stored Procedures\sp_InsertReminder.sql" />
+    <Build Include="Stored Procedures\sp_DeleteReminder.sql" />
   </ItemGroup>
 </Project>

@@ -51,7 +51,7 @@
             this.tbNote.MaxLength = 50;
             this.tbNote.Name = "tbNote";
             this.tbNote.Size = new System.Drawing.Size(380, 24);
-            this.tbNote.TabIndex = 41;
+            this.tbNote.TabIndex = 5;
             // 
             // btnCancel
             // 
@@ -86,7 +86,7 @@
             this.ddlType.Location = new System.Drawing.Point(108, 66);
             this.ddlType.Name = "ddlType";
             this.ddlType.Size = new System.Drawing.Size(380, 26);
-            this.ddlType.TabIndex = 38;
+            this.ddlType.TabIndex = 3;
             // 
             // lblMedicalTestType
             // 
@@ -117,7 +117,7 @@
             this.ddlMedication.Location = new System.Drawing.Point(108, 36);
             this.ddlMedication.Name = "ddlMedication";
             this.ddlMedication.Size = new System.Drawing.Size(380, 26);
-            this.ddlMedication.TabIndex = 43;
+            this.ddlMedication.TabIndex = 2;
             // 
             // lblMedication
             // 
@@ -138,7 +138,7 @@
             this.dtpDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(109, 24);
-            this.dtpDate.TabIndex = 45;
+            this.dtpDate.TabIndex = 1;
             // 
             // lblBirhday
             // 
@@ -166,7 +166,7 @@
             this.nudCount.Location = new System.Drawing.Point(108, 96);
             this.nudCount.Name = "nudCount";
             this.nudCount.Size = new System.Drawing.Size(92, 24);
-            this.nudCount.TabIndex = 48;
+            this.nudCount.TabIndex = 4;
             // 
             // EditMedicationFlow
             // 

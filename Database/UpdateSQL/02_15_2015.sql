@@ -1401,3 +1401,243 @@ END
 GO
 
 
+
+/* To prevent any potential data loss issues, you should review this script in detail before running it outside the context of the database designer.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Patient SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Reminder
+	(
+	ReminderID int NOT NULL IDENTITY (1, 1),
+	Date smalldatetime NOT NULL,
+	PatientID int NULL,
+	Notes nvarchar(MAX) NOT NULL
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE dbo.Reminder ADD CONSTRAINT
+	PK_Reminder PRIMARY KEY CLUSTERED 
+	(
+	ReminderID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Reminder ADD CONSTRAINT
+	FK_Reminder_Patient FOREIGN KEY
+	(
+	PatientID
+	) REFERENCES dbo.Patient
+	(
+	PatientID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Reminder SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_SelectReminderList]
+AS
+BEGIN
+	
+	SELECT
+	Reminder.*,
+	ISNULL(Patient.LastName + ' ' , '') + ISNULL(Patient.FirstName, '') AS PatientName
+	FROM
+		Reminder
+	LEFT OUTER JOIN
+        Patient ON Reminder.PatientID = Patient.PatientID
+	ORDER BY
+		Reminder.Date
+
+END
+GO
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_SelectReminder]
+(
+	@ReminderID int
+)
+AS
+BEGIN
+	
+	SELECT
+	*
+	FROM
+		Reminder
+	WHERE
+		ReminderID = @ReminderID
+
+END
+GO
+
+
+
+
+
+USE [DoctorNWinForm]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_SelectReminder]    Script Date: 3/2/2015 10:15:04 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_SelectReminder]
+(
+	@ReminderID int
+)
+AS
+BEGIN
+	
+	SELECT
+		Reminder.*,
+		ISNULL(Patient.LastName + ' ' , '') + ISNULL(Patient.FirstName, '') AS PatientName
+	FROM
+		Reminder
+	LEFT OUTER JOIN
+        Patient ON Reminder.PatientID = Patient.PatientID
+	WHERE
+		ReminderID = @ReminderID
+
+END
+
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_UpdateReminder]
+(
+	@ReminderID int,
+	@PatientID int,
+	@Date smalldatetime,
+	@Notes nvarchar(MAX)
+)
+AS
+BEGIN
+	
+	UPDATE
+		Reminder
+	SET
+		PatientID = @PatientID,
+		[Date] = @Date,
+		Notes = @Notes
+	WHERE
+		ReminderID = @ReminderID
+
+END
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_InsertReminder]
+(
+	@PatientID int,
+	@Date smalldatetime,
+	@Notes nvarchar(MAX)
+)
+AS
+BEGIN
+	
+	INSERT INTO Reminder
+	(
+		PatientID,
+		[Date],
+		Notes
+	)
+	VALUES
+	(
+		@PatientID,
+		@Date,
+		@Notes
+	)
+
+END
+GO
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_DeleteReminder]
+(
+	@ReminderID int
+)
+AS
+BEGIN
+	
+	DELETE 
+		Reminder
+	WHERE
+		ReminderID = @ReminderID
+
+END
+GO
+
+
+USE [DoctorNWinForm]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_SelectReminderList]    Script Date: 3/2/2015 10:55:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_SelectReminderList]
+AS
+BEGIN
+	
+	SELECT
+	Reminder.*,
+	ISNULL(Patient.LastName + ' ' , '') + ISNULL(Patient.FirstName, '') AS PatientName,
+	'Видалити' AS DeleteColumn
+	FROM
+		Reminder
+	LEFT OUTER JOIN
+        Patient ON Reminder.PatientID = Patient.PatientID
+	ORDER BY
+		Reminder.Date
+
+END
+
+GO
+
+
+

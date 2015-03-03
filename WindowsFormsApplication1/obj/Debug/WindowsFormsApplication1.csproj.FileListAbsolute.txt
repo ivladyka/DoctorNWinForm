@@ -22,3 +22,5 @@ E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplica
 E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.WarehouseForm.resources
 E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicationFlow.resources
 E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditMedicationWarehouseForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ReminderForm.resources
+E:\Project\DoctorNWinForm\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditReminderForm.resources

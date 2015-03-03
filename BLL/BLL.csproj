@@ -49,6 +49,7 @@
     <Compile Include="Core\MedicationFlowType.cs" />
     <Compile Include="Core\MedicationForm.cs" />
     <Compile Include="Core\Patient.cs" />
+    <Compile Include="Core\Reminder.cs" />
     <Compile Include="Core\Visit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

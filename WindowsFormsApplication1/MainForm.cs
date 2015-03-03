@@ -71,5 +71,14 @@ namespace WindowsFormsApplication1
             frmWarehouseForm.WindowState = FormWindowState.Maximized;
             frmWarehouseForm.Show();
         }
+
+        private void ReminderMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Close();
+            ReminderForm frmReminderForm = new ReminderForm();
+            frmReminderForm.MdiParent = this;
+            frmReminderForm.WindowState = FormWindowState.Maximized;
+            frmReminderForm.Show();
+        }
     }
 }

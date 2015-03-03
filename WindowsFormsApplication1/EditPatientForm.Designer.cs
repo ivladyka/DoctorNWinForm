@@ -51,6 +51,7 @@
             this.tbEducation = new System.Windows.Forms.TextBox();
             this.tbFinancialNotes = new System.Windows.Forms.TextBox();
             this.lblFinancialNotes = new System.Windows.Forms.Label();
+            this.btnAddReminder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisits)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,7 +215,7 @@
             // 
             this.btnAddVisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnAddVisit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddVisit.Location = new System.Drawing.Point(119, 199);
+            this.btnAddVisit.Location = new System.Drawing.Point(78, 199);
             this.btnAddVisit.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddVisit.Name = "btnAddVisit";
             this.btnAddVisit.Size = new System.Drawing.Size(205, 32);
@@ -305,11 +306,25 @@
             this.lblFinancialNotes.TabIndex = 28;
             this.lblFinancialNotes.Text = "Примітки Фінансові:";
             // 
+            // btnAddReminder
+            // 
+            this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.btnAddReminder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAddReminder.Location = new System.Drawing.Point(301, 199);
+            this.btnAddReminder.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAddReminder.Name = "btnAddReminder";
+            this.btnAddReminder.Size = new System.Drawing.Size(267, 32);
+            this.btnAddReminder.TabIndex = 38;
+            this.btnAddReminder.Text = "Додати нагадування";
+            this.btnAddReminder.UseVisualStyleBackColor = true;
+            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
+            // 
             // EditPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 613);
+            this.Controls.Add(this.btnAddReminder);
             this.Controls.Add(this.lblFinancialNotes);
             this.Controls.Add(this.tbFinancialNotes);
             this.Controls.Add(this.lblPhone);
@@ -372,5 +387,6 @@
         private System.Windows.Forms.TextBox tbEducation;
         private System.Windows.Forms.TextBox tbFinancialNotes;
         private System.Windows.Forms.Label lblFinancialNotes;
+        private System.Windows.Forms.Button btnAddReminder;
     }
 }

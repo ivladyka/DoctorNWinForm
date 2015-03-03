@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
 
         private void LoadVisit()
         {
-            btnAddVisit.Visible = lblVisits.Visible = dgvVisits.Visible = (PatientID > 0);
+            btnAddVisit.Visible = lblVisits.Visible = dgvVisits.Visible = btnAddReminder.Visible = (PatientID > 0);
             if (PatientID == 0)
             {
                 this.Height = 280;
@@ -205,6 +205,12 @@ namespace WindowsFormsApplication1
                         break;
                 }
             }
+        }
+
+        private void btnAddReminder_Click(object sender, EventArgs e)
+        {
+            EditReminderForm frmEditReminder = new EditReminderForm(0, PatientID);
+            frmEditReminder.ShowDialog();
         }
     }
 }
