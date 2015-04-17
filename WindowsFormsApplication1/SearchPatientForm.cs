@@ -32,6 +32,11 @@ namespace WindowsFormsApplication1
                 this.DialogResult = DialogResult.None;
                 return;
             }
+            SearchLoad();
+        }
+
+        private void SearchLoad()
+        {
             dgvPatients.AutoGenerateColumns = false;
             dgvPatients.Columns.Clear();
 
@@ -112,7 +117,10 @@ namespace WindowsFormsApplication1
             EditPatientForm frmEditPatient = new EditPatientForm(patientID);
             if (frmEditPatient.ShowDialog() == DialogResult.OK)
             {
-                LoadData();
+                if (tbLastName.Text.TrimEnd() != "")
+                {
+                    SearchLoad();
+                }
                 if (patientID > 0)
                 {
                     dgvPatients.Rows[m_EditedIndex].Cells[0].Selected = true;
